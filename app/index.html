@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Ledger — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: saved progress, filters, a spoiler setting, a platinum roadmap and a cited guide to each trophy.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+      <h1>Vice Ledger</h1>
+      <p class="tagline">The GTA 6 trophy guide &amp; tracker. Works offline — no account, no network, your progress stays in your browser.</p>
+    </div>
+    <div class="progress-card" id="progressCard" aria-label="Progress">
+      <p class="big-count"><span id="earnedCount">0</span><span class="of"> / 55</span></p>
+      <p class="progress-label">trophies earned</p>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><div class="bar-fill" id="progressFill"></div></div>
+      <p class="grade-line" id="gradeLine">0 platinum &middot; 0 gold &middot; 0 silver &middot; 0 bronze</p>
+      <p class="next-up" id="nextUp"></p>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab active" data-view="checklist" id="tab-checklist">Checklist</button>
+    <button type="button" class="tab" data-view="roadmap" id="tab-roadmap">Platinum roadmap</button>
+    <button type="button" class="tab" data-view="missables" id="tab-missables">Missables <span class="pill" id="missablePill">1</span></button>
+    <button type="button" class="tab" data-view="sources" id="tab-sources">Sources &amp; notes</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-checklist" class="view active" aria-label="Trophy checklist">
+    <div class="toolbar">
+      <label class="search-label">Search
+        <input type="search" id="searchBox" placeholder="Search a trophy name or description…" autocomplete="off">
+      </label>
+      <label>Grade
+        <select id="gradeFilter">
+          <option value="">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Kind
+        <select id="kindFilter">
+          <option value="">All kinds</option>
+          <option value="story">Story</option>
+          <option value="side">Side characters</option>
+          <option value="activity">Activities</option>
+          <option value="collectible">Collectibles</option>
+          <option value="robbery">Robberies</option>
+          <option value="exploration">Exploration</option>
+          <option value="money">Money</option>
+          <option value="secret">Secrets</option>
+          <option value="completion">100% completion</option>
+          <option value="platinum">Platinum</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="earnedOnly"> Earned only</label>
+      <label class="check"><input type="checkbox" id="spoilerToggle" checked> Hide story spoilers</label>
+    </div>
+    <div class="toolbar-row">
+      <p class="result-count" id="resultCount"></p>
+      <div class="actions">
+        <button type="button" id="exportBtn">Export progress</button>
+        <button type="button" id="importBtn">Import progress</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+        <button type="button" id="resetBtn" class="danger">Reset progress</button>
+      </div>
+    </div>
+    <p class="hint">Tick a trophy when you earn it — it saves in this browser instantly. Click any trophy to open its guide and sources. Spoilers stay hidden until a story trophy is earned.</p>
+    <ul class="trophy-list" id="trophyList"></ul>
+    <p class="empty" id="emptyState" hidden>No trophies match these filters. Clear the search or widen the filters.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Platinum roadmap">
+    <h2>The road to the platinum</h2>
+    <p class="lede">About 200 hours, most of it after the story. Five stages, in order — and one save habit that protects the whole run.</p>
+    <div class="save-callout">
+      <h3>The one habit that matters</h3>
+      <p>GTA 6 has <strong>no mission replay</strong>. Keep a manual save at the start of every chapter and one before the final mission. That single habit is your insurance for the run's only missable trophy.</p>
+    </div>
+    <ol class="roadmap" id="roadmapList"></ol>
+    <h3>What the checklist looks like at the end</h3>
+    <p>The 100% completion list (A Long Road) opens after the story and covers the counted trophies: 250 stunts (300 for 100%), 42 Shooting Range gold medals, 100 WAiNK locations, 100 vehicles discovered, 3 card sets, 18 meditation spots and 8 stranger strands. Earlier progress counts, so nothing on it is wasted effort.</p>
+    <p class="fine">Roadmap built from the official trophy descriptions and the counts PlayStation tracks (PSNProfiles / Exophase). Times: about 200 hours to the platinum (Push Square, GTABase).</p>
+  </section>
+
+  <section id="view-missables" class="view" aria-label="Missable trophies">
+    <h2>Missable trophies</h2>
+    <p class="lede">Only one trophy on the whole list is reported missable. Everything else can be earned after the story, in free roam.</p>
+    <div id="missableList"></div>
+    <h3>Why the rest are safe</h3>
+    <p>Every story trophy unlocks automatically by finishing its mission or chapter, and no story mission is one-shot — the danger is never the mission, it is a collectible tied to a chapter that ends. The side-character strands, activities, robberies and collectibles all stay available in free roam after the credits. The only reported exception is the meditation spot in Chapter 1, above.</p>
+    <p class="fine">Missable call based on the official descriptions plus KeenGamer and Output Lag (November 2026). If later guides confirm another missable, this page will say so.</p>
+  </section>
+
+  <section id="view-sources" class="view" aria-label="Sources and notes">
+    <h2>Sources &amp; notes</h2>
+    <p class="lede">Every guide in this app is written in our own words. The trophy names, descriptions and grades are PlayStation's, as listed on Exophase and PSNProfiles; the counts (42 Shooting Range challenges, 18 meditation spots, 397 stunts) come from the trackers and guides named below. Where a trigger is not yet confirmed by any guide, the trophy's own guide says so plainly instead of inventing a location.</p>
+    <h3>Sources used</h3>
+    <ul class="source-list" id="sourceList"></ul>
+    <h3>How to use this guide</h3>
+    <ol class="notes">
+      <li>Play the story first, ticking trophies as they pop, with a manual save at each chapter start.</li>
+      <li>Do the meditation spots the moment you find them — Positive Mental Attitude is the only missable.</li>
+      <li>After the credits, work the roadmap in order: side characters, activities, robberies, then collectibles and the 100% checklist.</li>
+      <li>Never turn on a cheat before the platinum: cheats disable trophies (and saving) in GTA games.</li>
+      <li>Your progress lives in this browser only. Export it before clearing browser data or switching devices.</li>
+    </ol>
+    <p class="fine">Vice Ledger is an unofficial fan guide. Grand Theft Auto and GTA are trademarks of Take-Two Interactive; this guide uses no Rockstar logo, artwork or game screenshots. Trophy data: Exophase and PSNProfiles, November 2026.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Vice Ledger — an offline GTA 6 trophy guide &amp; tracker. 55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze. No network requests; progress is saved in your browser only.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
